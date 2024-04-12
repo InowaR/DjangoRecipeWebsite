@@ -1,21 +1,17 @@
-from django.shortcuts import render
-
-from RecipeApplication.forms import RegistrationForm
-from RecipeApplication.models import User
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 
 
 def register(request):
     if request.method == 'POST':
-        form = RegistrationForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            username = form.clean_username()
-            password = form.clean_password2()
-            User.create_new_user(username, password)
+            form.save()
+            return redirect('index')
     else:
-        form = RegistrationForm()
+        form = UserCreationForm()
     context = {'form': form}
-    return render(request, 'registration.html', context)
-
+    return render(request, 'register.html', context)
 
 
 def index(request):

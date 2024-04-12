@@ -1,16 +1,5 @@
+from django.contrib.auth.models import User
 from django.db import models
-
-
-class User(models.Model):
-    name = models.CharField(max_length=255)
-    password = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.name
-
-    @classmethod
-    def create_new_user(cls, name, password):
-        return User.objects.create(name=name, password=password)
 
 
 class Recipe(models.Model):
@@ -18,7 +7,7 @@ class Recipe(models.Model):
     description = models.TextField()
     instructions = models.TextField()
     cooking_time = models.IntegerField()
-    image = models.ImageField(upload_to='images', blank=True)
+    image = models.ImageField(upload_to='images/', blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     ingredients = models.ManyToManyField('Ingredient')
 
