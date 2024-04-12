@@ -2,6 +2,11 @@ from django import forms
 from django.contrib.auth.models import User
 
 
+class LoginForm(forms.Form):
+    username = forms.CharField(label='Имя пользователя')
+    password = forms.CharField(label='Пароль', widget=forms.PasswordInput)
+
+
 class RecipeForm(forms.Form):
     title = forms.CharField(max_length=255)
     description = forms.CharField(max_length=255)
