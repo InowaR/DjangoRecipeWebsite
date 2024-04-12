@@ -3,9 +3,14 @@ from django.db import models
 
 class User(models.Model):
     name = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
+
+    @classmethod
+    def create_new_user(cls, name, password):
+        return User.objects.create(name=name, password=password)
 
 
 class Recipe(models.Model):
