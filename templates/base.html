@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,10 +8,21 @@
             
         {% endblock %}
     </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    <header>
+        <div class="header-block">
+            <a href="{% url 'index' %}">Главная</a>
+        </div>
+        <div class="header-block">
+            <a href="{% url 'register' %}">Зарегистрироваться</a>
+            <a href="{% url 'logout_view' %}">Выход</a>
+        </div>
+    </header>
+
     {% block content %}
-    
+        
     {% endblock %}
 </body>
 </html>
