@@ -58,9 +58,5 @@ header {
 
 .form-group {
     margin-bottom: 15px;
-}
-
-.errorlist {
-    color: red;
-    margin-top: 5px;
+    margin-right: 22px;
 }
