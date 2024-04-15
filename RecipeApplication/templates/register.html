@@ -7,9 +7,11 @@
 {% endblock %}
 
 {% block content %}
-    <form action="{% url 'register' %}" method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button type="submit" class="btn">Зарегистрироваться</button>
-    </form>
+    <div class="form-container">
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn" type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
 {% endblock %}
