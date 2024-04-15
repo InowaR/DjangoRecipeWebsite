@@ -1,5 +1,5 @@
 from django.contrib import admin
-from RecipeApplication.models import Recipe, Ingredient, RecipeCategory, RecipeCategoryMap
+from RecipeApplication.models import Recipe, Ingredient, RecipeCategory, RecipeCategoryMap, Review
 
 
 @admin.register(Recipe)
@@ -19,4 +19,9 @@ class RecipeCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(RecipeCategoryMap)
 class RecipeCategoryMapAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
     pass

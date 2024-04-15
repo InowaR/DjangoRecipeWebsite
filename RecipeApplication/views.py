@@ -1,7 +1,10 @@
+import logging
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from RecipeApplication.forms import LoginForm
 from django.contrib.auth.forms import UserCreationForm
+
+logger = logging.getLogger(__name__)
 
 
 def register(request):
@@ -33,4 +36,5 @@ def login_view(request):
 
 
 def index(request):
+    logger.info(f"Адрес клиента: {request.META['REMOTE_ADDR']}")
     return render(request, 'index.html')
