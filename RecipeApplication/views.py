@@ -5,6 +5,8 @@ from django.shortcuts import render, redirect
 from RecipeApplication.forms import LoginForm
 from django.contrib.auth.forms import UserCreationForm
 
+from RecipeApplication.models import Recipe
+
 logger = logging.getLogger(__name__)
 
 
@@ -46,4 +48,8 @@ def logout_view(request):
 @login_required
 def index(request):
     logger.info(f"Адрес клиента: {request.META['REMOTE_ADDR']}")
-    return render(request, 'index.html')
+    recipes = Recipe.objects.order_by('?')[:5]
+    context = {
+        'recipes': recipes
+    }
+    return render(request, 'index.html', context)

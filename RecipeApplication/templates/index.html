@@ -5,5 +5,19 @@
 {% endblock %}
 
 {% block content %}
-    <p>Добро пожаловать на сайт</p>
+    <h1>Добро пожаловать на сайт</h1>
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <h2>{{ recipe.title }}</h2>
+                <p>{{ recipe.description }}</p>
+                <p>Время приготовления: {{ recipe.cooking_time }} мин</p>
+                <ul>
+                    {% for ingredient in recipe.ingredients.all %}
+                        <li>{{ ingredient.name }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
