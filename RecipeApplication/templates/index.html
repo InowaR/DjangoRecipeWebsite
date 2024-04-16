@@ -8,21 +8,24 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <h1>Добро пожаловать на сайт</h1>
-    <ul>
-        {% for recipe in recipes %}
-            <li>
-                <a href="{% url 'index' %}">
-                    <img class="picture" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
-                </a><br>
-                <a href="{% url 'index' %}">{{ recipe.title }}</a>
-                <p>{{ recipe.description }}</p>
-                <p>Время приготовления: {{ recipe.cooking_time }} мин</p>
-                <ul>
-                    {% for ingredient in recipe.ingredients.all %}
-                        <li>{{ ingredient.name }}</li>
-                    {% endfor %}
-                </ul>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <ul class="list-items">
+            {% for recipe in recipes %}
+                <li class="item">
+                    <a href="{% url 'index' %}">
+                        <img class="picture" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+                    </a><br>
+                    <a href="{% url 'index' %}">{{ recipe.title }}</a>
+                    <p>{{ recipe.description }}</p>
+                    <p>Время: {{ recipe.cooking_time }} мин</p>
+                    <ul>
+                        {% for ingredient in recipe.ingredients.all %}
+                            <li>{{ ingredient.name }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a href="{% url 'create_recipe' %}">Добавить рецепт</a>
 {% endblock %}
