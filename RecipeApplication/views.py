@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from RecipeApplication.forms import LoginForm, RecipeForm
 from django.contrib.auth.forms import UserCreationForm
-
 from RecipeApplication.models import Recipe
 
 logger = logging.getLogger(__name__)

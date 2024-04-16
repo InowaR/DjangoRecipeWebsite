@@ -2,13 +2,13 @@ from django.contrib import admin
 from RecipeApplication.models import Recipe, Ingredient, RecipeCategory, RecipeCategoryMap, Review
 
 
-@admin.register(Recipe)
-class RecipeAdmin(admin.ModelAdmin):
+@admin.register(Ingredient)
+class IngredientAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(Ingredient)
-class IngredientAdmin(admin.ModelAdmin):
+@admin.register(Recipe)
+class RecipeAdmin(admin.ModelAdmin):
     pass
 
 
