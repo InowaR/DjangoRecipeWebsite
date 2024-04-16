@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.models import User
+from RecipeApplication.models import Ingredient
 
 
 class LoginForm(forms.Form):
@@ -13,4 +13,4 @@ class RecipeForm(forms.Form):
     instructions = forms.CharField(max_length=255)
     cooking_time = forms.IntegerField()
     image = forms.ImageField()
-    author = forms.ModelChoiceField(queryset=User.objects.all())
+    ingredients = forms.ModelMultipleChoiceField(queryset=Ingredient.objects.all())
