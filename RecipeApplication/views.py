@@ -118,5 +118,4 @@ def recipe_detail(request, recipe_id):
         'recipe': recipe,
         'is_updated': recipe.is_updated(),
     }
-    print(recipe.is_updated())
     return render(request, 'recipe_detail.html', context)

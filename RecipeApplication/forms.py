@@ -14,4 +14,3 @@ class RecipeForm(forms.Form):
     cooking_time = forms.IntegerField(label='Время приготовления')
     image = forms.ImageField(label='Изображение')
     ingredients = forms.ModelMultipleChoiceField(queryset=Ingredient.objects.all(), label='Ингредиенты')
-
