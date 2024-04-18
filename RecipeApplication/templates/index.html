@@ -8,6 +8,9 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <h1>Добро пожаловать на сайт</h1>
+    <button>
+        <a href="{% url 'create_recipe' %}">Добавить рецепт</a>
+    </button>
     <div class="container">
         <ul class="list-items">
             {% for recipe in recipes %}
@@ -22,7 +25,4 @@
             {% endfor %}
         </ul>
     </div>
-    <button>
-        <a href="{% url 'create_recipe' %}">Добавить рецепт</a>
-    </button>
 {% endblock %}
