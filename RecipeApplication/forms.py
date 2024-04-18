@@ -8,18 +8,18 @@ class LoginForm(forms.Form):
 
 
 class RecipeForm(forms.Form):
-    title = forms.CharField(max_length=255)
-    description = forms.CharField(max_length=255)
-    instructions = forms.CharField(max_length=255)
-    cooking_time = forms.IntegerField()
-    image = forms.ImageField()
-    ingredients = forms.ModelMultipleChoiceField(queryset=Ingredient.objects.all())
+    title = forms.CharField(max_length=255, label='Название')
+    description = forms.CharField(max_length=255, label='Описание')
+    instructions = forms.CharField(max_length=255, label='Шаги приготовления')
+    cooking_time = forms.IntegerField(label='Время приготовления')
+    image = forms.ImageField(label='Изображение')
+    ingredients = forms.ModelMultipleChoiceField(queryset=Ingredient.objects.all(), label='Ингредиенты')
 
 
 class RecipeEditForm(forms.Form):
-    title = forms.CharField(max_length=255)
-    description = forms.CharField(max_length=255)
-    instructions = forms.CharField(max_length=255)
-    cooking_time = forms.IntegerField()
-    image = forms.ImageField()
-    ingredients = forms.ModelMultipleChoiceField(queryset=Ingredient.objects.all())
+    title = forms.CharField(max_length=255, label='Название')
+    description = forms.CharField(max_length=255, label='Описание')
+    instructions = forms.CharField(max_length=255, label='Шаги приготовления')
+    cooking_time = forms.IntegerField(label='Время приготовления')
+    image = forms.ImageField(label='Изображение')
+    ingredients = forms.ModelMultipleChoiceField(queryset=Ingredient.objects.all(), label='Ингредиенты')

@@ -12,17 +12,12 @@
         <ul class="list-items">
             {% for recipe in recipes %}
                 <li class="item">
+                    <h2>{{ recipe.title }}</h2>
                     <a href="{% url 'recipe_detail' recipe_id=recipe.pk %}">
                         <img class="picture" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
                     </a><br>
-                    <a href="{% url 'recipe_detail' recipe_id=recipe.pk %}">{{ recipe.title }}</a>
-                    <p>{{ recipe.description }}</p>
+                    <h2>{{ recipe.description }}</h2>
                     <p>Время: {{ recipe.cooking_time }} мин</p>
-                    <ul>
-                        {% for ingredient in recipe.ingredients.all %}
-                            <li>{{ ingredient.name }}</li>
-                        {% endfor %}
-                    </ul>
                 </li>
             {% endfor %}
         </ul>

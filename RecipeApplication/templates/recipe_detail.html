@@ -8,14 +8,22 @@
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <h1>Рецепт</h1>
+    <h2>Название: </h2>
     <p>{{ recipe.title }}</p>
+    <h2>Описание блюда: </h2>
     <p>{{ recipe.description }}</p>
+    <h2>Инструкция: </h2>
     <p>{{ recipe.instructions }}</p>
-    <p>{{ recipe.cooking_time }}</p>
+    <h2>Время приготовления: {{ recipe.cooking_time }} минут</h2>
     <img class="picture" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
-    <p>{{ recipe.created_at }}</p>
-    <p>{{ recipe.updated_at }}</p>
+    {% if recipe.created_at == recipe.updated_at %}
+        <p>Рецепт создан {{ recipe.created_at }}</p>
+    {% else %}
+        <p>Рецепт обновлен {{ recipe.updated_at }}</p>
+    {% endif %}
+    <h2>Автор рецепта: </h2>
     <p>{{ recipe.author }}</p>
+    <h2>Ингредиенты: </h2>
     <ul>
         {% for ingredient in recipe.ingredients.all %}
             <li>{{ ingredient.name }}</li>
