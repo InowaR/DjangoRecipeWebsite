@@ -14,3 +14,12 @@ class RecipeForm(forms.Form):
     cooking_time = forms.IntegerField()
     image = forms.ImageField()
     ingredients = forms.ModelMultipleChoiceField(queryset=Ingredient.objects.all())
+
+
+class RecipeEditForm(forms.Form):
+    title = forms.CharField(max_length=255)
+    description = forms.CharField(max_length=255)
+    instructions = forms.CharField(max_length=255)
+    cooking_time = forms.IntegerField()
+    image = forms.ImageField()
+    ingredients = forms.ModelMultipleChoiceField(queryset=Ingredient.objects.all())

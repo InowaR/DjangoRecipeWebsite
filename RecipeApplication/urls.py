@@ -10,4 +10,5 @@ urlpatterns = [
     path('logout/', views.logout_view, name='logout_view'),
     path('create_recipe/', views.create_recipe, name='create_recipe'),
     path('recipe_detail/<int:recipe_id>/', views.recipe_detail, name='recipe_detail'),
+    path('edit_recipe/<int:recipe_id>/', views.edit_recipe, name='edit_recipe'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

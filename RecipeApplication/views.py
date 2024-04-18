@@ -2,7 +2,7 @@ import logging
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from RecipeApplication.forms import LoginForm, RecipeForm
+from RecipeApplication.forms import LoginForm, RecipeForm, RecipeEditForm
 from django.contrib.auth.forms import UserCreationForm
 from RecipeApplication.models import Recipe
 
@@ -80,6 +80,38 @@ def create_recipe(request):
         return render(request, 'create_recipe.html', context)
 
 
+@login_required
+def edit_recipe(request, recipe_id):
+    if request.method == 'POST':
+        form = RecipeEditForm(request.POST, request.FILES)
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            description = form.cleaned_data['description']
+            instructions = form.cleaned_data['instructions']
+            cooking_time = form.cleaned_data['cooking_time']
+            image = form.cleaned_data['image']
+            ingredients = request.POST.getlist('ingredients')
+            author = request.user
+            recipe = Recipe.objects.get(pk=recipe_id)
+            recipe.title = title
+            recipe.description = description
+            recipe.instructions = instructions
+            recipe.cooking_time = cooking_time
+            recipe.image = image
+            recipe.author = author
+            for i in ingredients:
+                recipe.ingredients.add(i)
+            recipe.save()
+            return redirect('index')
+    else:
+        form = RecipeEditForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'edit_recipe.html', context)
+
+
+@login_required
 def recipe_detail(request, recipe_id):
     recipe = Recipe.objects.get(pk=recipe_id)
     context = {
