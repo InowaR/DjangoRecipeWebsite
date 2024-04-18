@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-
+    Рецепт
 {% endblock %}
 
 {% block content %}
@@ -10,12 +10,12 @@
     <h1>Рецепт</h1>
     <h2>Название: </h2>
     <p>{{ recipe.title }}</p>
+    <img class="big-picture" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
     <h2>Описание блюда: </h2>
     <p>{{ recipe.description }}</p>
     <h2>Инструкция: </h2>
     <p>{{ recipe.instructions }}</p>
     <h2>Время приготовления: {{ recipe.cooking_time }} минут</h2>
-    <img class="picture" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
     {% if recipe.created_at == recipe.updated_at %}
         <p>Рецепт создан {{ recipe.created_at }}</p>
     {% else %}
@@ -29,5 +29,7 @@
             <li>{{ ingredient.name }}</li>
         {% endfor %}
     </ul>
-    <a href="{% url 'edit_recipe' recipe_id=recipe.pk %}">Изменить рецепт</a>
+    <button>
+        <a href="{% url 'edit_recipe' recipe_id=recipe.pk %}">Изменить рецепт</a>
+    </button>
 {% endblock %}

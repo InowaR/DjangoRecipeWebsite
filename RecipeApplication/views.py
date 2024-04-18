@@ -117,5 +117,4 @@ def recipe_detail(request, recipe_id):
     context = {
         'recipe': recipe
     }
-    print(recipe)
     return render(request, 'recipe_detail.html', context)
