@@ -1,0 +1,13 @@
+# Настройка pycharm для работы с джанго проектом
+File -> Settings -> Project: DjangoRecipeWebsite -> Add Interpreter -> Add Local Interpreter
+source .venv/bin/activate
+pip install -r requirements.txt
+
+
+# Удаление коммитов
+git reset --hard <commit>
+
+
+# Только для восстановления таблиц без удаления файла db.sqlite3
+python manage.py dumpdata > backup.json
+python manage.py loaddata backup.json

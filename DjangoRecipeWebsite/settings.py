@@ -24,8 +24,6 @@ SECRET_KEY = 'django-insecure-+0n_9unq-!7fkeup96n4c=5jcqi%z85d4uf$ko!*aqmc028un8
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = ['192.168.43.168', '127.0.0.1', 'inowar1.pythonanywhere.com']
 
@@ -114,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'Europe/Moscow'
 
