@@ -1,7 +1,8 @@
 # Настройка pycharm для работы с джанго проектом
 1) File -> Settings -> Project: DjangoRecipeWebsite -> Add Interpreter -> Add Local Interpreter
-2) перезагрузить pycharm
+2) Перезагрузить pycharm
 3) pip install -r requirements.txt
+4) Изменить в конфигурации localhost на 0.0.0.0
 
 
 # Удаление коммитов

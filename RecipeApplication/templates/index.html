@@ -12,10 +12,10 @@
         <ul class="list-items">
             {% for recipe in recipes %}
                 <li class="item">
-                    <a href="{% url 'index' %}">
+                    <a href="{% url 'recipe_detail' recipe_id=recipe.pk %}">
                         <img class="picture" src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
                     </a><br>
-                    <a href="{% url 'index' %}">{{ recipe.title }}</a>
+                    <a href="{% url 'recipe_detail' recipe_id=recipe.pk %}">{{ recipe.title }}</a>
                     <p>{{ recipe.description }}</p>
                     <p>Время: {{ recipe.cooking_time }} мин</p>
                     <ul>

@@ -78,3 +78,12 @@ def create_recipe(request):
             'form': form
         }
         return render(request, 'create_recipe.html', context)
+
+
+def recipe_detail(request, recipe_id):
+    recipe = Recipe.objects.get(pk=recipe_id)
+    context = {
+        'recipe': recipe
+    }
+    print(recipe)
+    return render(request, 'recipe_detail.html', context)
