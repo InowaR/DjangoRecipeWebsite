@@ -23,6 +23,9 @@ class Recipe(models.Model):
     def __str__(self):
         return self.title
 
+    def is_updated(self):
+        return True if (self.updated_at - self.created_at).seconds >= 2 else False
+
 
 class RecipeCategory(models.Model):
     name = models.CharField(max_length=255)

@@ -2,7 +2,7 @@ import logging
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from RecipeApplication.forms import LoginForm, RecipeForm, RecipeEditForm
+from RecipeApplication.forms import LoginForm, RecipeForm
 from django.contrib.auth.forms import UserCreationForm
 from RecipeApplication.models import Recipe
 
@@ -83,7 +83,7 @@ def create_recipe(request):
 @login_required
 def edit_recipe(request, recipe_id):
     if request.method == 'POST':
-        form = RecipeEditForm(request.POST, request.FILES)
+        form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             title = form.cleaned_data['title']
             description = form.cleaned_data['description']
@@ -104,7 +104,7 @@ def edit_recipe(request, recipe_id):
             recipe.save()
             return redirect('index')
     else:
-        form = RecipeEditForm()
+        form = RecipeForm()
         context = {
             'form': form
         }
@@ -115,6 +115,8 @@ def edit_recipe(request, recipe_id):
 def recipe_detail(request, recipe_id):
     recipe = Recipe.objects.get(pk=recipe_id)
     context = {
-        'recipe': recipe
+        'recipe': recipe,
+        'is_updated': recipe.is_updated(),
     }
+    print(recipe.is_updated())
     return render(request, 'recipe_detail.html', context)
