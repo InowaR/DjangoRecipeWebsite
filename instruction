@@ -1,7 +1,7 @@
 # Настройка pycharm для работы с джанго проектом
-File -> Settings -> Project: DjangoRecipeWebsite -> Add Interpreter -> Add Local Interpreter
-source .venv/bin/activate
-pip install -r requirements.txt
+1) File -> Settings -> Project: DjangoRecipeWebsite -> Add Interpreter -> Add Local Interpreter
+2) перезагрузить pycharm
+3) pip install -r requirements.txt
 
 
 # Удаление коммитов
