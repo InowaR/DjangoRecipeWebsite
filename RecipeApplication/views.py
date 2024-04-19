@@ -19,7 +19,7 @@ def register(request):
     else:
         form = UserCreationForm()
     context = {'form': form}
-    return render(request, 'register.html', context)
+    return render(request, 'RecipeApplication/register.html', context)
 
 
 def login_view(request):
@@ -35,7 +35,7 @@ def login_view(request):
     else:
         form = LoginForm()
     context = {'form': form}
-    return render(request, 'login.html', context)
+    return render(request, 'RecipeApplication/login.html', context)
 
 
 @login_required
@@ -51,7 +51,7 @@ def index(request):
     context = {
         'recipes': recipes
     }
-    return render(request, 'index.html', context)
+    return render(request, 'RecipeApplication/index.html', context)
 
 
 @login_required
@@ -77,7 +77,7 @@ def create_recipe(request):
         context = {
             'form': form
         }
-        return render(request, 'create_recipe.html', context)
+        return render(request, 'RecipeApplication/create_recipe.html', context)
 
 
 @login_required
@@ -108,7 +108,7 @@ def edit_recipe(request, recipe_id):
         context = {
             'form': form
         }
-        return render(request, 'edit_recipe.html', context)
+        return render(request, 'RecipeApplication/edit_recipe.html', context)
 
 
 @login_required
@@ -118,4 +118,4 @@ def recipe_detail(request, recipe_id):
         'recipe': recipe,
         'is_updated': recipe.is_updated(),
     }
-    return render(request, 'recipe_detail.html', context)
+    return render(request, 'RecipeApplication/recipe_detail.html', context)

@@ -1,17 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'RecipeApplication/base.html' %}
 {% load crispy_forms_tags %}
 
 {% block title %}
-    Редактировать рецепт
+    Добавить рецепт
 {% endblock %}
 
 {% block content %}
-    <h1>Редактировать рецепт</h1>
+    <h1>Добавить новый рецепт</h1>
     <div class="form-container">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy }}
-            <button class="btn" type="submit">Сохранить</button>
+            <button class="btn" type="submit">Добавить рецепт</button>
         </form>
     </div>
 {% endblock %}

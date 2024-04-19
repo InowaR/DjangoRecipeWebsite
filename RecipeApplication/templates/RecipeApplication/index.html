@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'RecipeApplication/base.html' %}
 {% load static %}
 
 {% block title %}
@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <h1>Добро пожаловать на сайт</h1>
     <button>
         <a href="{% url 'create_recipe' %}">Добавить рецепт</a>
